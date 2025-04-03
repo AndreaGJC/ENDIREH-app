@@ -10,11 +10,11 @@ import json
 # Configuration of the page
 st.set_page_config(layout='wide')
 # Setting the Roboto font
-with open( "/home/andrea/pro-SQL_Platzi/ENDIREH-app/style.css" ) as css:
+with open( "style.css" ) as css:
     st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
 
 #------------- 0. Leer el conjunto de datos
-df = pd.read_csv("/home/andrea/pro-SQL_Platzi/ENDIREH-app/data/raw/TSDem.csv",encoding='latin1').rename(columns=str.lower)
+df = pd.read_csv("data/raw/TSDem.csv",encoding='latin1').rename(columns=str.lower)
 df['cve_ent'] = df['cve_ent'].astype(str).str.zfill(2)
 
 
@@ -206,7 +206,7 @@ tb1.drop_duplicates(inplace=True)
 
 # 2. Cargar la capa JSON
 # Upload the json file
-with open('/home/andrea/pro-SQL_Platzi/ENDIREH-app/data/raw/MGN/00ent.json') as f:
+with open('data/raw/MGN/00ent.json') as f:
   mex_states = json.load(f)
 
 # 2. Hacer una función para crear el mapa
