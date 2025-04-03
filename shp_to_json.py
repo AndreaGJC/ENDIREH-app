@@ -4,13 +4,13 @@ import geopandas as gpd
 import numpy as np
 
 # Cargar el shapefile
-map_df = gpd.read_file('/home/andrea/pro-SQL_Platzi/ENDIREH-app/data/raw/MGN/00ent.shp')
+map_df = gpd.read_file('data/raw/MGN/00ent.shp')
 
 # 3. Exportar como GeoJSON con encoding UTF-8
-map_df.to_file("/home/andrea/pro-SQL_Platzi/ENDIREH-app/data/raw/MGN/00ent.json", driver='GeoJSON', encoding='utf-8')
+map_df.to_file("data/raw/MGN/00ent.json", driver='GeoJSON', encoding='utf-8')
 
 #Leerlo con geopandas
-map_df = gpd.read_file("/home/andrea/pro-SQL_Platzi/ENDIREH-app/data/raw/MGN/00ent.json")
+map_df = gpd.read_file("data/raw/MGN/00ent.json")
 
 map_df.crs = """
 PROJCS["MEXICO_ITRF_2008_LCC",
@@ -40,6 +40,6 @@ print(map_df.geometry.head())
 
 # Ahora si guardarlo como Json
 map_df.geometry = map_df.geometry.simplify(tolerance=0.001)  # Ajusta la tolerancia
-map_df.to_file("/home/andrea/pro-SQL_Platzi/ENDIREH-app/data/raw/MGN/00ent.json", driver="GeoJSON")
+map_df.to_file("data/raw/MGN/00ent.json", driver="GeoJSON")
 
 print(f"Archivo GeoJSON exportado con éxito")
